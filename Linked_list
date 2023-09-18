@@ -18,3 +18,34 @@ class Linked_list(object):
             self.head = new_node
             self.head_link = new_node
         self.size += 1
+    
+
+
+    def add_to(self,data,index):
+        new_node = Node(data)
+        previous_node = None
+        real_node = self.head
+        i = 0
+        while i < index and real_node.link:
+            previous_node = real_node
+            real_node = real_node.link
+            i += 1
+        if i == index:
+            previous_node.link = new_node
+            new_node.link = real_node
+            return True
+        else:
+            return False
+        
+
+
+      
+#    def find(self,data):
+#        real_node = self.head
+#        for _ in range(1, self.size + 1):
+#            if real_node.item == data:
+#                return True
+#           else:
+#             real_node = real_node.link
+#       return False
+
